@@ -132,7 +132,7 @@ void SevSegShift::digitOff(byte digitNum){
   */
 void SevSegShift::pushData2ShiftRegister() {
   // walk through the ShiftRegisterMap and push eveything to the ShiftRegister(s)
-  for (int i = 0; i < 8*_numberOfShiftRegisters; i++) {
+  for (int i = 8*_numberOfShiftRegisters-1; i >= 0; i--) {
     // put the data to the data PIN of Arduino
     digitalWrite(_pinDS, _shiftRegisterMap[i]);
     // push it to the next Register (DS -> 0 | 0->1 | 1->2 | ...)
